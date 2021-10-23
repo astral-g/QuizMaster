@@ -1,0 +1,70 @@
+#submit-btn {
+    background-color: #555555;
+    border: none;
+    color: white;
+    text-align: center;
+    align-content: center;
+    text-decoration: none;
+    font-size: 16px;
+    width: 100%;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#submit-btn:hover {
+    background-color: rgb(119, 145, 230);
+    transition: .3 seconds;
+}
+
+.arrow {
+    border: solid rgb(119, 145, 230);
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+#previous-page-btn:visited {
+    text-decoration: none; 
+    color: black;
+    font-weight: bold;
+}
+
+#previous-page-btn {
+    margin-bottom: 2em;
+    text-decoration: none; 
+    color: black;
+    font-weight: bold;
+}
+
+#previous-page-btn:focus {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+#heading-box h1 {
+    text-align: center;
+    color: black;
+    font-weight: bold;
+}
+
+.data-box {
+    margin-top: 10px;
+    width: 100%;
+    padding: 15px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    overflow: hidden;
+}

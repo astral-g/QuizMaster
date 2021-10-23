@@ -1,0 +1,31 @@
+#quiz-container {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.quiz-item {
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.quiz-btn {
+    background-color: #555555;
+    border: none;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    font-size: 16px;
+    margin-right: 2px;
+    width: 100px;
+}
+
+.quiz-btn:hover {
+    background-color: rgb(119, 145, 230);
+    transition: .3 seconds; 
+}

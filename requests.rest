@@ -1,0 +1,8 @@
+POST http://localhost:8080/dev/tempRegister
+Content-Type: application/json
+
+{
+    "userName": "George",
+    "password": "test",
+    "permission": "view"
+}

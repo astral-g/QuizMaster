@@ -1,0 +1,10 @@
+<% const handleStatus = (status) => {
+    if(status.code == "OK" && status.err === 0) { 
+        document.getElementById("errDisplay").hidden = true
+    }
+
+    if(status.code === "ERR" && status.err != 0) {
+        document.getElementById("errDisplay").textContent = status.err
+        document.getElementById("errDisplay").hidden = false
+    } 
+}; %> 

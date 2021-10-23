@@ -1,0 +1,11 @@
+{
+    "userName": "George",
+    "password": "test",
+    "role": "administrator"
+}
+
+{
+    "userName": "GeorgeF",
+    "password": "test",
+    "role": "dev"
+}

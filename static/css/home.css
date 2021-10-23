@@ -1,0 +1,9 @@
+section {
+    height: 100vh;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#main-title {
+    text-align: center;
+}

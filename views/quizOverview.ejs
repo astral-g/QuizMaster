@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/css/quizOverview.css">
+    <script src="/public/js/editQuestion.js"></script>
+
+    <title> WebbiSkools Quizzes - Quiz Overview</title>
+</head>
+<body>
+    <%- include('../partials/nav', { displayLogout: loggedInStatus, userPermission: userPermission }) %>
+    <div id="quiz-desc-container">
+        <h2><%= quizData.name %></h2>
+        <h2><%= quizData.description %></h2>
+
+        <% let baseUrl  = '/quiz/add-question/' %>
+        <% let finalUrl = baseUrl.concat(quizData._id) %>
+        <% if(userPermission === "all") { %>
+            <form action = <%= finalUrl %> method="GET">
+                <button>Add Question</button>
+            </form>
+        <% } %>
+    </div>
+    <br>
+    <div id="question-area">
+        <% for(let i = 0; i < questions.length; i++) { %>
+
+            <h2 class="question-title"><%= questions[i].question %></h2>
+
+            <ul class="question-options">
+                <li>A: <%= questions[i].optionA %></li>
+                <li>B: <%= questions[i].optionB %></li>
+                <li>C: <%= questions[i].optionC %></li>
+                <li>D: <%= questions[i].optionD %></li>
+
+                <% if(userPermission === "all" || userPermission === "view") { %> 
+                    <li>Correct answer: <%= questions[i].correctAnswer %></li>
+                <% } %>
+                <% if(userPermission === "all") { %> 
+                    <form action="/quiz/delete-quiz" method="POST">
+                        <input name="quizId" hidden="true" display="false" value=<%= quizData._id %>>
+                        <input name="question" hidden="true" display="false" value="<%= questions[i].question %>">
+                        <button>Delete Question</button>
+                    </form>
+                    <button class="edit-btn" id="edit-btn-<%= i %>" onclick= " setTimeout(renderEditForm( `<%= quizData._id %>`, `<%= questions[i]._id %>`, `<%= i %>` ), 1000) ">Edit Question</button>
+                    <div class="edit-container" id="edit-container-<%= i %>" hidden="true" display="false">
+
+                    </div>
+                <% } %>
+            </ul>
+        <% } %>
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+html, body, div, p, ul, li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: 'Roboto', sans-serif; 
+  font-weight: 100;
+}
+
+button {
+  background-color: #555555;
+  text-align: center;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  cursor: pointer;
+  display: flex;
+  width: 7rem;
+  padding: 5px;
+}
+
+button:hover {
+  background-color: rgb(119, 145, 230);
+  transition: .3 seconds;
+  cursor: pointer;
+}
+
+#question-area {
+  margin-left: auto;
+  margin-right: auto;
+  width: 8em;
+}
+
+.question-title {
+  text-align: center;
+  display: flex;
+}

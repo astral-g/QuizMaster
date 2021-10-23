@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="/public/js/questionValidation.js"></script>
+    <link rel="stylesheet" href="/static/css/addQuestions.css">
+
+    <title>Webbiskools - Add a Question</title>
+</head>
+<body>
+
+    <section id="heading-box">
+        <h1>Adding questions to the <%= quizName %> quiz</h1>
+    </section>
+
+    <!-- Create a link which takes the user back to the overview for the specific quiz -->
+    <% let baseUrl = '/quiz/viewQuiz/'%>
+    <% let finalUrl = baseUrl.concat(quizId) %>
+    <a href=<%= finalUrl %> id="previous-page-btn">Back to quiz overview <i class="arrow left"></i></a>
+
+    <form id="questionForm" action="/quiz/add-question" method="POST" onsubmit=" return validateQuestion()">
+        <!-- Hidden element for DB transaction + redirect route  -->
+        <input name="quizId" hidden="true" value=<%= quizId %>>
+        <input class="data-box" name="question" type="text" placeholder="Question">
+        <input class="data-box" name="optionA" type="text" placeholder="Option A">
+        <input class="data-box" name="optionB" type="text" placeholder="Option B">
+        <input class="data-box" name="optionC" type="text" placeholder="Option C">
+        <input class="data-box" name="optionD" type="text" placeholder="Option D">
+        <input class="data-box" name="correctAnswer" type="text" placeholder="Correct Answer">
+
+        <input id="submit-btn" type="submit" value="Add Question">
+    </form>
+
+
+</body>
+</html>

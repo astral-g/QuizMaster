@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/css/quizDashboard.css">
+    <title>WebbiSkools Quizzes - Quiz Dashboard</title>
+</head>
+<body>
+    <%- include('../partials/nav', { displayLogout: loggedInStatus, userPermission: userPermission }) %>
+    
+    <div id="quiz-container">
+        <% if(allQuizzes.length === 0) { %>
+            <h1>There are currently no quizzes to display</h1>
+        <% } %>
+
+        <% for(let i = 0; i < allQuizzes.length; i++) { %>
+            <div class="quiz-item">
+                <h2><%= allQuizzes[i].name %></h2>
+                <p><%= allQuizzes[i].description %></p>
+
+                <% let baseUrl  = '/quiz/viewQuiz/' %>
+                <% let quizId   = allQuizzes[i]._id %>
+                <% let finalUrl = baseUrl.concat(quizId) %>
+                <form action= <%= finalUrl %> method="GET">
+                    <button class="quiz-btn">View Quiz</button>
+                </form>
+                <% if(userPermission === "all") { %> 
+                    <form action="/quiz/delete-quiz" method="POST">
+                        <input hidden="true" display="false" name="quizId" value=<%= allQuizzes[i]._id %>>
+                        <button class="quiz-btn">Delete Quiz</button>
+                    </form>
+                <% } %>
+            </div>
+        <% } %>
+    </div>
+
+</body>
+</html>
